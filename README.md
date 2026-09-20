@@ -1,4 +1,4 @@
-# Ahmed Esmael - Cloud Solutions Architect Portfolio
+# Ahmed Esmael - Azure Solutions Architect Portfolio
 
 Welcome to my professional portfolio website!
 
@@ -33,7 +33,7 @@ Welcome to my professional portfolio website!
 
 ## 📝 About
 
-Cloud Solutions Architect specializing in AWS, Azure, GCP, microservices, DevOps, and cloud security.
+Azure Solutions Architect specializing in Azure, Microsoft 365, microservices, DevOps, and security.
 
 ---
 
