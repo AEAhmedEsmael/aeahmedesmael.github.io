@@ -5,13 +5,16 @@
 }
 
 :root {
-    --primary-color: #0066cc;
-    --secondary-color: #004999;
-    --text-color: #333;
-    --light-bg: #f8f9fa;
-    --border-color: #ddd;
+    --primary-color: #0f6cbd;
+    --secondary-color: #0a3d69;
+    --accent-color: #dfeefb;
+    --text-color: #1f2a37;
+    --muted-color: #526070;
+    --light-bg: #f4f8fc;
+    --panel-bg: #ffffff;
+    --border-color: #dfe7f1;
     --white: #ffffff;
-    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow: 0 10px 30px rgba(15, 108, 189, 0.12);
     --transition: all 0.3s ease;
 }
 
@@ -23,7 +26,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: var(--text-color);
-    background-color: var(--white);
+    background: linear-gradient(180deg, #f9fbfe 0%, #eef5fb 100%);
 }
 
 .container {
@@ -34,13 +37,14 @@ body {
 
 /* Navbar Styles */
 .navbar {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(135deg, #0f6cbd 0%, #0a3d69 100%);
     color: var(--white);
     padding: 1rem 0;
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: var(--shadow);
+    box-shadow: 0 8px 22px rgba(10, 61, 105, 0.18);
+    backdrop-filter: blur(8px);
 }
 
 .nav-container {
@@ -105,7 +109,9 @@ body {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.18), transparent 35%),
+        linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: var(--white);
     padding: 120px 20px;
     text-align: center;
@@ -113,26 +119,56 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.04) 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
 }
 
 .hero-content h1 {
     font-size: 3.5rem;
     margin-bottom: 0.5rem;
+    letter-spacing: -0.04em;
     animation: slideDown 0.8s ease;
+}
+
+.hero-content .eyebrow {
+    display: inline-block;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 999px;
+    padding: 0.45rem 0.9rem;
+    background: rgba(255, 255, 255, 0.04);
+    animation: slideUp 0.8s ease 0.2s both;
 }
 
 .hero-content .subtitle {
     font-size: 1.8rem;
     margin-bottom: 1rem;
-    opacity: 0.9;
-    animation: slideUp 0.8s ease 0.2s both;
+    opacity: 0.95;
+    animation: slideUp 0.8s ease 0.35s both;
 }
 
 .hero-content .tagline {
+    max-width: 760px;
+    margin: 0 auto 2rem auto;
     font-size: 1.1rem;
-    margin-bottom: 2rem;
-    opacity: 0.8;
-    animation: slideUp 0.8s ease 0.4s both;
+    opacity: 0.82;
+    animation: slideUp 0.8s ease 0.45s both;
 }
 
 @keyframes slideDown {
@@ -161,17 +197,19 @@ body {
     display: inline-block;
     background: var(--white);
     color: var(--primary-color);
-    padding: 12px 30px;
-    border-radius: 50px;
+    padding: 14px 30px;
+    border-radius: 999px;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 700;
+    letter-spacing: 0.02em;
     transition: var(--transition);
     animation: slideUp 0.8s ease 0.6s both;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
 }
 
 .cta-button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.18);
 }
 
 /* Quick Links Section */
@@ -187,16 +225,18 @@ body {
 }
 
 .card {
-    background: var(--white);
+    background: var(--panel-bg);
     padding: 2rem;
-    border-radius: 10px;
+    border-radius: 16px;
     box-shadow: var(--shadow);
     transition: var(--transition);
+    border: 1px solid var(--border-color);
 }
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 16px 35px rgba(10, 61, 105, 0.12);
+    border-color: rgba(15, 108, 189, 0.2);
 }
 
 .card h3 {
@@ -218,8 +258,16 @@ body {
 
 .page-section h1 {
     color: var(--primary-color);
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     font-size: 2.5rem;
+}
+
+.page-intro {
+    color: var(--muted-color);
+    font-size: 1.05rem;
+    max-width: 760px;
+    margin-bottom: 2rem;
+    line-height: 1.8;
 }
 
 .page-section h2 {
@@ -235,10 +283,12 @@ body {
 
 /* About Content */
 .about-content {
-    background: var(--light-bg);
+    background: rgba(255, 255, 255, 0.7);
     padding: 3rem;
-    border-radius: 10px;
+    border-radius: 18px;
     line-height: 1.8;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
 }
 
 .about-text p {
@@ -276,16 +326,17 @@ body {
 }
 
 .project-card {
-    background: var(--light-bg);
+    background: rgba(255, 255, 255, 0.9);
     padding: 1.5rem;
-    border-radius: 8px;
+    border-radius: 16px;
     border-left: 4px solid var(--primary-color);
     transition: var(--transition);
+    border: 1px solid var(--border-color);
 }
 
 .project-card:hover {
     box-shadow: var(--shadow);
-    transform: translateX(5px);
+    transform: translateY(-4px);
 }
 
 .project-card h3 {
@@ -313,16 +364,18 @@ body {
 }
 
 .course-card {
-    background: var(--white);
+    background: rgba(255, 255, 255, 0.96);
     border: 1px solid var(--border-color);
     padding: 2rem;
-    border-radius: 8px;
+    border-radius: 16px;
     transition: var(--transition);
+    box-shadow: 0 6px 18px rgba(15, 108, 189, 0.04);
 }
 
 .course-card:hover {
     box-shadow: var(--shadow);
-    border-color: var(--primary-color);
+    border-color: rgba(15, 108, 189, 0.25);
+    transform: translateY(-3px);
 }
 
 .course-card h3 {
@@ -364,16 +417,18 @@ body {
 }
 
 .update-item {
-    background: var(--light-bg);
+    background: rgba(255, 255, 255, 0.92);
     padding: 2rem;
     margin-bottom: 2rem;
-    border-radius: 8px;
+    border-radius: 16px;
     border-left: 4px solid var(--primary-color);
     transition: var(--transition);
+    border: 1px solid var(--border-color);
 }
 
 .update-item:hover {
     box-shadow: var(--shadow);
+    transform: translateY(-2px);
 }
 
 .update-date {
@@ -443,9 +498,11 @@ body {
 
 /* Contact Form */
 .contact-form {
-    background: var(--light-bg);
+    background: rgba(255, 255, 255, 0.9);
     padding: 2rem;
-    border-radius: 8px;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
 }
 
 .form-group {

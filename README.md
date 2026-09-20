@@ -10,7 +10,7 @@ Welcome to my professional portfolio website!
 
 - **Home** - Introduction and overview
 - **About** - Professional background and expertise  
-- **Projects** - Cloud architecture projects
+- **Projects** - Azure architecture projects
 - **Courses** - Learning resources
 - **Updates** - Blog and insights
 - **Contact** - Get in touch
@@ -33,7 +33,7 @@ Welcome to my professional portfolio website!
 
 ## 📝 About
 
-Azure Solutions Architect specializing in Azure, Microsoft 365, microservices, DevOps, and security.
+Azure Solutions Architect specializing in Microsoft Azure, Microsoft 365, infrastructure modernization, and security.
 
 ---
 
